@@ -1,0 +1,14 @@
+.resultados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.imagen {
+    width: 100%;
+    max-width: 200px;
+    height: 200;
+    overflow: hidden;
+}
+.imagen > img {
+    width: 200px;
+    height: 200px;
+}
