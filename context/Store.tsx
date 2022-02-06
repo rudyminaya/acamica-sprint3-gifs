@@ -3,12 +3,13 @@ import IAction, { ActionType } from '../models/actions'
 import AppMode from '../models/appMode'
 import Autocompletar from '../models/autocompletar'
 import IState from '../models/istate'
-import ListaGif from '../models/listaGif'
+import PrevGif from '../models/prevGif'
+import SearchValue from '../models/searchValue'
 
 const initialState: IState = {
-    listaGif: undefined,
+    prevGif: [],
     appMode: AppMode.lightMode,
-    searchValue: undefined,
+    searchValue: '',
     autocompletado: undefined
 }
 
@@ -33,19 +34,27 @@ function reducer(state: IState, action: IAction): IState {
         }
 
         case ActionType.actualizarLista: {
-            const payload = action.payload as ListaGif
+            const payload = action.payload as PrevGif[]
             return {
                 ...state,
-                listaGif: payload
+                prevGif: payload
             }
         }
 
-        case ActionType.autocompletar:
+        case ActionType.autocompletar: {
+            const payload = action.payload as Autocompletar
+            return {
+                ...state,
+                autocompletado: payload
+            }
+        }
+
+        case ActionType.actualizarKeywords:
             {
-                const payload = action.payload as Autocompletar
+                const payload = action.payload as string
                 return {
                     ...state,
-                    autocompletado: payload
+                    searchValue: payload
                 }
             }
             return state

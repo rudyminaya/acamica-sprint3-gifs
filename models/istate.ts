@@ -1,12 +1,11 @@
 import AppMode from './appMode'
 import Autocompletar from './autocompletar'
-import ListaGif from './listaGif'
-import SearchValue from './searchValue'
+import PrevGif from './prevGif'
 
 type IState = {
-    listaGif?: ListaGif
+    prevGif: PrevGif[]
     appMode: AppMode
-    searchValue?: SearchValue
+    searchValue: string
     autocompletado?: Autocompletar
 }
 export default IState

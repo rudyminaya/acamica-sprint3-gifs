@@ -6,7 +6,8 @@ interface IAction {
 export enum ActionType {
     cambiarModoApp,
     actualizarLista,
-    autocompletar
+    autocompletar,
+    actualizarKeywords
 }
 
 export default IAction
