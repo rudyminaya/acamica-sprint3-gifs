@@ -12,6 +12,7 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
     const { state } = useContext(Store)
     const [listaGifs, setListaGifs] = useState<[]>([])
+    const [listaAutocompletados, setListaAutoCompletados] = useState<[]>([])
 
     const listaInicial = () => {
         fetch(
@@ -24,6 +25,13 @@ const Home: NextPage = () => {
     useEffect(() => {
         listaInicial()
     }, [])
+    useEffect(() => {
+        fetch(
+            `https://api.giphy.com/v1/gifs/search/tags?api_key=peX1bTEghEg6t36WVvw12zWyTZRwm1Bf&q=${state.searchValue}`
+        )
+            .then((res) => res.json())
+            .then((data) => setListaAutoCompletados(data.data))
+    }, [state.searchValue])
     return (
         <div
             style={{
@@ -54,7 +62,10 @@ const Home: NextPage = () => {
                         titulo="¡Inspirate y busca los mejores"
                         enfasis="GIFS!"
                     />
-                    <Buscador onClick={listaInicial} />
+                    <Buscador
+                        onClick={listaInicial}
+                        tags={listaAutocompletados}
+                    />
                 </main>
                 <div className={styles.resultados}>
                     <h4

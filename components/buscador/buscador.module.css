@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 .buscador {
     display: flex;
@@ -30,4 +31,37 @@
 }
 .boton > img {
     pointer-events: none;
+}
+
+.autocompletado {
+    position: absolute;
+    top: calc(100% + 1rem);
+    z-index: 59;
+    background-color: #fff;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    list-style: none;
+    border-radius: 20px;
+    border: 1px solid #572ee5;
+    overflow: hidden;
+}
+.lupa {
+    max-height: 20px;
+}
+.item {
+    padding: 12px;
+    border-bottom: 2px solid #dcd9dc;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    column-gap: 10px;
+    font-weight: 300;
+    cursor: pointer;
+}
+.item:hover {
+    background-color: #ede7e7;
+}
+.item:last-child {
+    border-bottom: none;
 }

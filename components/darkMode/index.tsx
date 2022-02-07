@@ -22,7 +22,7 @@ const DarkMode = (props: Props) => {
             style={{ color: props.color, borderColor: props.borderColor }}
             onClick={() => setModo(!modo)}
             className={styles.boton}
-        >{`Modo ${modo ? 'Dark' : 'Light'}`}</button>
+        >{`Modo ${modo ? 'Light' : 'Dark'}`}</button>
     )
 }
 
