@@ -1,10 +1,9 @@
-import AppMode from './appMode'
 import Autocompletar from './autocompletar'
 import PrevGif from './prevGif'
 
 type IState = {
     prevGif: PrevGif[]
-    appMode: AppMode
+    darkMode: boolean
     searchValue: string
     autocompletado?: Autocompletar
 }

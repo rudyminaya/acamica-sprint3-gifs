@@ -6,3 +6,10 @@ export const valorDeBusqueda = (value: string): IAction => {
         payload: value
     }
 }
+
+export const cambiarModoApp = (mode: boolean): IAction => {
+    return {
+        type: ActionType.cambiarModoApp,
+        payload: mode
+    }
+}

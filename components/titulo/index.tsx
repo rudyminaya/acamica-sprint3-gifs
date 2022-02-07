@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Store } from '../../context/Store'
 import styles from './titulo.module.css'
 
 type Props = {
@@ -7,8 +8,12 @@ type Props = {
 }
 
 const TituloPrincipal = (props: Props) => {
+    const { state } = useContext(Store)
     return (
-        <h1 className={styles.tituloPrincipal}>
+        <h1
+            className={styles.tituloPrincipal}
+            style={{ color: state.darkMode ? '#FFF' : '#572EE5' }}
+        >
             {props.titulo} <strong>{props.enfasis}</strong>
         </h1>
     )

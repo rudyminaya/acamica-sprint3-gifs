@@ -1,12 +1,14 @@
 .resultados {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minMax(200px, 250px));
+    place-content: center;
 }
 .imagen {
     width: 100%;
     max-width: 200px;
     height: 200;
     overflow: hidden;
+    margin: 2.5rem auto;
 }
 .imagen > img {
     width: 200px;

@@ -1,14 +1,12 @@
 import React, { createContext, useReducer } from 'react'
 import IAction, { ActionType } from '../models/actions'
-import AppMode from '../models/appMode'
 import Autocompletar from '../models/autocompletar'
 import IState from '../models/istate'
 import PrevGif from '../models/prevGif'
-import SearchValue from '../models/searchValue'
 
 const initialState: IState = {
     prevGif: [],
-    appMode: AppMode.lightMode,
+    darkMode: false,
     searchValue: '',
     autocompletado: undefined
 }
@@ -26,10 +24,10 @@ export const Store = createContext<IContext>({
 function reducer(state: IState, action: IAction): IState {
     switch (action.type) {
         case ActionType.cambiarModoApp: {
-            const payload = action.payload as AppMode
+            const payload = action.payload as boolean
             return {
                 ...state,
-                appMode: payload
+                darkMode: payload
             }
         }
 
