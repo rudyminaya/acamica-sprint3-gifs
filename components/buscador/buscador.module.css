@@ -23,6 +23,9 @@
     border: none;
     background-color: transparent;
 }
+.inputBuscador:focus {
+    outline: none;
+}
 .boton {
     width: 86px;
     background-color: #572ee5;
